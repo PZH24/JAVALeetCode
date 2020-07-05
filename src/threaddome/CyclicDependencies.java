@@ -1,4 +1,4 @@
-package threadDome;
+package threaddome;
 
 import java.util.HashMap;
 import java.util.Map;

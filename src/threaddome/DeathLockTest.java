@@ -1,4 +1,4 @@
-package threadDome;
+package threaddome;
 
 /**
  * @author pengzhihui
