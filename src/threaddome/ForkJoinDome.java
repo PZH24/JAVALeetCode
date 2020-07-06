@@ -26,10 +26,16 @@ public class ForkJoinDome {
         //通过并行流的方式计算出结果 lamba
         Instant instant = Instant.now();
         System.out.println("forkJoin执行时间"+ Duration.between(forkInstant, instant).toMillis() + "ms");
+        //并行流：通过将数据划分成各个数据块，并用不同线程分别处理每个数据块的流，都执行完再通过统一个线程 算出结果
         Long result = LongStream.rangeClosed(0L,50000000000L).parallel().reduce(0,Long::sum);
         Instant endInstant = Instant.now();
         System.out.println("并行流的执行时间"+ Duration.between(instant, endInstant).toMillis() + "ms");
         System.out.println("并行流的执行结果:"+ result);
+        //顺序流
+        Long result2 = LongStream.rangeClosed(0L,50000000000L).sequential().reduce(0,Long::sum);
+        Instant end = Instant.now();
+        System.out.println("并行流的执行时间"+ Duration.between(endInstant, end).toMillis() + "ms");
+        System.out.println("顺序流的执行结果:"+ result2);
 
     }
 }

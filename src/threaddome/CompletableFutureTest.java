@@ -1,6 +1,7 @@
 package threaddome;
 
 import java.util.concurrent.CompletableFuture;
+import java.util.function.Consumer;
 
 /**
  * @author pengzhihui
@@ -21,6 +22,7 @@ public class CompletableFutureTest {
         CompletableFuture<Void> result3 = CompletableFuture.allOf(completableFutureDouble1,completableFutureDouble2 );
         result3.join();
         result3.thenAccept((r)->System.out.println("price3"+r));
+        result3.thenAccept(aVoid -> System.out.println("新结果"+aVoid));
         try {
             Thread.sleep(200);
         } catch (InterruptedException e) {
